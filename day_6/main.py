@@ -5,6 +5,7 @@ def part1():
 
     lp = 0
     while lp < len(data):
+        # this feels like cheating
         if len(set(data[lp:lp +4])) == 4:
             break
         else:
