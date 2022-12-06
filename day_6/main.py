@@ -3,7 +3,6 @@ def part1():
     with open('./input.txt') as f:
         data = f.read()
 
-
     lp = 0
     while lp < len(data):
         if len(set(data[lp:lp +4])) == 4:
