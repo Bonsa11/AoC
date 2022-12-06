@@ -1,8 +1,8 @@
 # AdventOfCode
 Advent of Code 2022
-[X] day 1
-[X] day 2
-[X] day 3
-[X] day 4
-[ ] day 5
-[X] day 6
+- [x] day 1
+- [x] day 2
+- [x] day 3
+- [x] day 4
+- [ ] day 5
+- [x] day 6
