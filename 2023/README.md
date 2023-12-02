@@ -21,14 +21,14 @@ General files should look like this and tests are added to the bottom of the fil
 ```rust
 
 fn main(){
-    let input = include_str!("./input.txt");
+    let input = include_str!("../../input.txt");
     let output = part1(input);
     dbg!(output);
 }
 
 
 fn part1(input: &str) -> String {
-    "todo!()".to_string()
+    "4".to_string()
 }
 
 
@@ -39,6 +39,7 @@ mod tests {
 
     #[test]
     fn it_works() {
+        let test_input = include_str!("../../test.txt")
         let result = part1("");
         assert_eq!(result, "4".to_string());
     }
