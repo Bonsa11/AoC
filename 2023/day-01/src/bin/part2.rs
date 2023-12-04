@@ -6,22 +6,58 @@ fn main(){
 
 
 fn part2(input: &str) -> u32 {
-    let output: u32 = input.lines()        
-                    .map(|line| {
-                        let mut it = line
-                                        .chars()
-                                        .filter_map(|character| {
-                                            character.to_digit(10)
-                                        });
-                        let first = it.next().expect("Should be a number");
+    let lines = input.lines();
+    let mut new_lines = Vec::new();
+    for line in lines {
+        let new_line: &str;
+        for idx in 0..line.len() {
+            let partial_line = &line[idx..];
 
-                        match it.last() {
-                            Some(num) => format!("{first}{num}"),
-                            None => format!("{first}{first}"),
-                        }.parse::<u32>()
-                        .expect("Should be a valid number")
-                    }).sum::<u32>();
-    return output
+
+            if partial_line.starts_with("one"){
+                new_line = format!("1{new_line}");
+            }
+            if partial_line.starts_with("two"){
+                line.to_string().insert(idx, '2');
+                new_l = ines.push(line);
+            }
+            if partial_line.starts_with("three"){
+                line.to_string().insert(idx, '3');
+                new_lines.push(line);
+            }
+            if partial_line.starts_with("four"){
+                line.to_string().insert(idx, '4');
+                new_lines.push(line);
+            }
+            if partial_line.starts_with("five"){
+                line.to_string().insert(idx, '5');
+                new_lines.push(line);
+            }
+            if partial_line.starts_with("six"){
+                line.to_string().insert(idx, '6');
+                new_lines.push(line);
+            }
+            if partial_line.starts_with("seven"){
+                line.to_string().insert(idx, '7');
+                new_lines.push(line);
+            }
+            if partial_line.starts_with("eight"){
+                line.to_string().insert(idx, '8');
+                new_lines.push(line);
+            }
+            if partial_line.starts_with("nine"){
+                line.to_string().insert(idx, '9');
+                new_lines.push(line);
+            }
+
+            let latest = new_lines.last();
+            dbg!(latest);
+        } 
+    }
+
+    
+
+    return 200;
 }
 
 
