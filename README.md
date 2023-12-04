@@ -6,8 +6,8 @@ Advent of Code
 <details>
 <summary>Completed Days</summary>
 
-    - [ ] day 1
-    - [ ] day 2
+    - [ 1/2 ] day 1
+    - [ 2/2 ] day 2
     - [ ] day 3
     - [ ] day 4
     - [ ] day 5
