@@ -15,7 +15,7 @@ type Data struct {
 
 func main() {
 
-	fileName := "./input.txt"
+	fileName := "../input.txt"
 
 	log.SetFlags(log.Ldate | log.Ldate)
 
