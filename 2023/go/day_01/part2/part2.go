@@ -95,7 +95,7 @@ func run(data Data) (sumOfCalibrationValues int, err error) {
 		"nine":  "9",
 	}
 
-	for idx, line := range data.Lines {
+	for _, line := range data.Lines {
 		var left, right string
 
 		newline := replaceUsingMap(line, numberLookup)
