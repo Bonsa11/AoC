@@ -19,15 +19,14 @@ type Round struct {
 }
 
 type Game struct {
-	ID     int
-	powers int
+	ID int
 }
 
 func main() {
 
 	fileName := "../input.txt"
 
-	log.SetFlags(log.Ldate | log.Ldate)
+	log.SetFlags(log.Ldate)
 
 	data, err := parse(fileName)
 	if err != nil {
