@@ -53,35 +53,28 @@ func parse(fileName string) (data *Data, err error) {
 func replaceUsingMap(line string, replacements map[string]string) (newline string) {
 	newline = ""
 
-	// set up tweo pointers
+	// set up two pointers
 	lp := 0
-	rp := lp + 1
+	rp := 0
 
-	for rp <= len(line) {
-
-		// edge case first elem is a digit
-		if unicode.IsDigit(rune(line[lp])) {
-			fmt.Printf("lp is digit %s \n", string(line[lp]))
-			newline += string(line[lp])
+	for rp < len(line) {
+		if unicode.IsDigit(rune(line[rp])) {
+			newline += string(line[rp])
 			lp = rp
-			rp += 1
-
-		} else {
-			// check if digit
-			newVal := line[lp:rp]
-			fmt.Printf("newVal is %v \n", newVal)
-			for idx := range newVal {
-				valToCheck := newVal[idx:]
-				fmt.Printf("value to check is %v \n", valToCheck)
+		} else if lp != rp {
+			subString := line[lp : rp+1]
+			for idx := range subString {
+				//fmt.Printf("checking index %d with substring %s \n", idx, subString)
+				valToCheck := subString[idx:]
 				value, exists := replacements[valToCheck]
 				if exists {
-					fmt.Print(" !!found value!! \n")
 					newline += value
 					lp = rp
 					break
 				}
 			}
 		}
+
 		rp += 1
 	}
 	return newline
@@ -106,7 +99,7 @@ func run(data Data) (sumOfCalibrationValues int, err error) {
 		var left, right string
 
 		newline := replaceUsingMap(line, numberLookup)
-		fmt.Printf("    Newline for line %v is %v \n", line, newline)
+		//fmt.Printf("    Newline for line %v is %v \n", line, newline)
 
 		for _, char := range newline {
 			if unicode.IsDigit(char) {
@@ -125,7 +118,7 @@ func run(data Data) (sumOfCalibrationValues int, err error) {
 		if err != nil {
 			return -1, fmt.Errorf("unable to parse value from %s, %s: %w", left, right, err)
 		}
-		fmt.Printf("        Value for line %v is %v \n", idx, value)
+		//fmt.Printf("        Value for line %v is %v \n", idx, value)
 
 		sumOfCalibrationValues += value
 	}
